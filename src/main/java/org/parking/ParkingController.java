@@ -22,7 +22,11 @@ public class ParkingController {
         controlSystem.carArrive();
 
 
+        controlSystem.checkCurrentCars();
 
+        controlSystem.carDepart();
+
+        controlSystem.checkCurrentCars();
 
 
 
@@ -71,7 +75,7 @@ class ControlSystem {
     Map<Integer, Car> carsOnParking = new HashMap<>();
 
     Scanner scanner = new Scanner(System.in); //лоукост замена камере шлагбаума
-    int carsCounter = 1;
+    int carsCounter = 1; //счетчик для прибывших тачек, будет играть роль ключа для хэшмапы
 
 
     public void carArrive() {
@@ -82,7 +86,14 @@ class ControlSystem {
     }
 
     public void carDepart() {
+        System.out.println("Какой уезжает госномер?"); //типа инфа с камеры
+        String carNumber = scanner.next();
+        carsOnParking.remove(2);
+        System.out.println("Авто под номером " + carNumber + " уехало"); //типа инфа с камеры
+    }
 
+    private int checkSum() {
+        return 0;
     }
 
 
