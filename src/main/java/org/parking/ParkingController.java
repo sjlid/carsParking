@@ -2,6 +2,7 @@ package org.parking;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -88,7 +89,14 @@ class ControlSystem {
     public void carDepart() {
         System.out.println("Какой уезжает госномер?"); //типа инфа с камеры
         String carNumber = scanner.next();
-        carsOnParking.remove(2);
+        for (Map.Entry<Integer, Car> entry : carsOnParking.entrySet()) {
+            if (Objects.equals(carNumber, entry.getValue())) {
+
+            }
+        }
+
+
+
         System.out.println("Авто под номером " + carNumber + " уехало"); //типа инфа с камеры
     }
 
