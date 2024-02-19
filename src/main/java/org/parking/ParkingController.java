@@ -73,15 +73,16 @@ class Car {
 class ControlSystem {
 
     //бахаем хэшмап для хранения тачек
-    Map<Integer, Car> carsOnParking = new HashMap<>();
+    Map<String, Car> carsOnParking = new HashMap<>();
 
     Scanner scanner = new Scanner(System.in); //лоукост замена камере шлагбаума
     int carsCounter = 1; //счетчик для прибывших тачек, будет играть роль ключа для хэшмапы
 
 
     public void carArrive() {
-        System.out.println("Какой там госномер-то?"); //типа инфа с камеры
-        carsOnParking.put(carsCounter, new Car(scanner.next(), System.currentTimeMillis())); //пиупиу и добавили в мапу
+        System.out.println("Какой там госномер-то?"); //инфа с камеры
+        String newCar = scanner.next();
+        carsOnParking.put(newCar, new Car(newCar, System.currentTimeMillis())); //пиупиу и добавили в мапу
         carsCounter++;
         System.out.println("Отлично! Новое авто может быть на подходе.");
     }
@@ -89,9 +90,9 @@ class ControlSystem {
     public void carDepart() {
         System.out.println("Какой уезжает госномер?"); //типа инфа с камеры
         String carNumber = scanner.next();
-        for (Map.Entry<Integer, Car> entry : carsOnParking.entrySet()) {
+        for (Map.Entry<String, Car> entry : carsOnParking.entrySet()) {
             if (Objects.equals(carNumber, entry.getValue())) {
-
+                carsOnParking.remove(entry);
             }
         }
 
@@ -107,7 +108,7 @@ class ControlSystem {
 
     //это если хотим посмотреть, че там по тачкам, которые ЩАС на парковке
     public void checkCurrentCars() {
-        for(Map.Entry<Integer, Car> entry : carsOnParking.entrySet()) {
+        for(Map.Entry<String, Car> entry : carsOnParking.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
     }
