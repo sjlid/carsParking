@@ -85,10 +85,10 @@ class ControlSystem {
 
     //метод для обработки уезда авто
     public void carDepart() {
-        System.out.println("Какой уезжает госномер?"); //типа инфа с камеры
+        System.out.println("Какой уезжает госномер?"); //инфа с камеры
         String carNumber = scanner.next();
         carsOnParking.remove(carNumber);
-        System.out.println("Авто под номером " + carNumber + " уехало."); //типа инфа с камеры
+        System.out.println("Авто под номером " + carNumber + " уехало.");
     }
 
     //метод для расчета бабла на оплату
