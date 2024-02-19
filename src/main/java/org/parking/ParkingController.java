@@ -20,7 +20,6 @@ public class ParkingController {
         controlSystem.carArrive();
         controlSystem.carArrive();
 
-
         controlSystem.checkCurrentCars();
 
         controlSystem.carDepart();
@@ -98,7 +97,6 @@ class ControlSystem {
     public void checkSum(long timeStart, long timeFinish) {
         double totalTime = (double) ((timeFinish - timeStart) / 60000L); // перевод в минуты и кастим в int
         double payment = totalTime * (getPayment());
-
         System.out.println("Водитель заплатит " + payment + " рублей");
 
     }
