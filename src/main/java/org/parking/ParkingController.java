@@ -8,9 +8,7 @@ import java.util.Scanner;
 /**
  * реализовываю систему для системы контроля парковки автомоблей на платной стоянке:
  * тачки заезжают под шлагбаум, стоят какое-то время на парковке, потом оплачиваювремя и уезжают
- *  1 час / 60 руб
- *  3 часа / 150 руб
- *  6 и более / 300 руб
+ *  1 час / 60 руб -> 1 минута / 1 рубль
  *  В случае если авто стоит 2.5 часа, то округляется в бОльшую сторону - будет оплата 3 часов
  */
 
@@ -72,6 +70,8 @@ class Car {
 
 class ControlSystem {
 
+    private final int PAYMENT = 1; //тариф за минуту
+
     Map<String, Car> carsOnParking = new HashMap<>(); //бахаем хэшмап для хранения тачек
     Scanner scanner = new Scanner(System.in); //лоукост замена камере шлагбаума
 
@@ -87,12 +87,19 @@ class ControlSystem {
     public void carDepart() {
         System.out.println("Какой уезжает госномер?"); //инфа с камеры
         String carNumber = scanner.next();
-        carsOnParking.remove(carNumber);
+        carsOnParking.get(carNumber).setParkingEndTime(System.currentTimeMillis()); // пишем в уезжающую тачку время окончания парковки
+        checkSum(carsOnParking.get(carNumber).getParkingStartTime(), carsOnParking.get(carNumber).getParkingEndTime()); //тут считаем бабло
         System.out.println("Авто под номером " + carNumber + " уехало.");
+        carsOnParking.remove(carNumber); //выпихиваем из мапы пару
+
     }
 
     //метод для расчета бабла на оплату
-    public void checkSum() {
+    public void checkSum(long timeStart, long timeFinish) {
+        double totalTime = (double) ((timeFinish - timeStart) / 60000L); // перевод в минуты и кастим в int
+        double payment = totalTime * (getPayment());
+
+        System.out.println("Водитель заплатит " + payment + " рублей");
 
     }
 
@@ -104,7 +111,9 @@ class ControlSystem {
         }
     }
 
-
+    public int getPayment() {
+        return PAYMENT;
+    }
 }
 
 
