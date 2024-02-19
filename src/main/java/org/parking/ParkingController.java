@@ -42,8 +42,8 @@ public class ParkingController {
 
 class Car {
     private String carId; // так регистрируется в системе госномер, который прилетает с камеры шлагбаума
-    private long parkingStartTime; //время стоянки в минутах
-    private long parkingEndTime;
+    private long parkingStartTime; //время начала парковки в минутах
+    private long parkingEndTime; //время конца парковки в минутах
 
     public Car(String carId, long parkingStartTime) {
         this.carId = carId;
@@ -72,41 +72,32 @@ class Car {
 
 class ControlSystem {
 
-    //бахаем хэшмап для хранения тачек
-    Map<String, Car> carsOnParking = new HashMap<>();
-
+    Map<String, Car> carsOnParking = new HashMap<>(); //бахаем хэшмап для хранения тачек
     Scanner scanner = new Scanner(System.in); //лоукост замена камере шлагбаума
-    int carsCounter = 1; //счетчик для прибывших тачек, будет играть роль ключа для хэшмапы
 
-
+    //метод для обработки прибытия авто
     public void carArrive() {
         System.out.println("Какой там госномер-то?"); //инфа с камеры
         String newCar = scanner.next();
         carsOnParking.put(newCar, new Car(newCar, System.currentTimeMillis())); //пиупиу и добавили в мапу
-        carsCounter++;
         System.out.println("Отлично! Новое авто может быть на подходе.");
     }
 
+    //метод для обработки уезда авто
     public void carDepart() {
         System.out.println("Какой уезжает госномер?"); //типа инфа с камеры
         String carNumber = scanner.next();
-        for (Map.Entry<String, Car> entry : carsOnParking.entrySet()) {
-            if (Objects.equals(carNumber, entry.getValue())) {
-                carsOnParking.remove(entry);
-            }
-        }
-
-
-
-        System.out.println("Авто под номером " + carNumber + " уехало"); //типа инфа с камеры
+        carsOnParking.remove(carNumber);
+        System.out.println("Авто под номером " + carNumber + " уехало."); //типа инфа с камеры
     }
 
-    private int checkSum() {
-        return 0;
+    //метод для расчета бабла на оплату
+    public void checkSum() {
+
     }
 
 
-    //это если хотим посмотреть, че там по тачкам, которые ЩАС на парковке
+    //это если хотим посмотреть, че там по тачкам, которые ЩАС на парковке. В целом нас интересует только ключ и тачка со своим хэшем
     public void checkCurrentCars() {
         for(Map.Entry<String, Car> entry : carsOnParking.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
