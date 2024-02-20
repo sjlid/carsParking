@@ -5,11 +5,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ControlSystem {
-
-    /**
-     * тариф за минуту
-     */
-    private int payment = 1;
     /**
      * переменная для цикла, чтобы убрать рекурсию
      */
@@ -63,7 +58,7 @@ public class ControlSystem {
         String newCar = scanner.next();
         carsOnParking.put(
                 newCar,
-                new Car(newCar, System.currentTimeMillis()                )
+                new Car(System.currentTimeMillis()                )
         );
         System.out.println("Отлично! Новое авто может быть на подходе.");
     }
@@ -114,7 +109,10 @@ public class ControlSystem {
         }
     }
 
+    /**
+     * цена 1 руб / минута
+     */
     public int getPayment() {
-        return payment;
+        return 1;
     }
 }
