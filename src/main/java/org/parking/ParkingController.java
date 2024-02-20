@@ -62,7 +62,7 @@ class ControlSystem {
     Map<String, Car> carsOnParking = new HashMap<>(); //бахаем хэшмап для хранения тачек
     Scanner scanner = new Scanner(System.in); //лоукост замена камере шлагбаума
 
-    //манагер для управления вашей парковочкой
+    //манагер-метод для управления вашей парковочкой
     public void manageApp() {
         System.out.println("Приезжает или уезжает авто?");
         String userInput = scanner.next();
