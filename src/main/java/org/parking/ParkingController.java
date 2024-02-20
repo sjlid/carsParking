@@ -100,17 +100,22 @@ class ControlSystem {
     public void carDepart() {
         System.out.println("Какой уезжает госномер?"); //инфа с камеры
         String carNumber = scanner.next();
-        carsOnParking.get(carNumber).setParkingEndTime(System.currentTimeMillis()); // пишем в уезжающую тачку время окончания парковки
-        checkSum(carsOnParking.get(carNumber).getParkingStartTime(), carsOnParking.get(carNumber).getParkingEndTime()); //тут считаем бабло
-        System.out.println("Авто под номером " + carNumber + " уехало.");
-        carsOnParking.remove(carNumber); //выпихиваем из мапы пару
+
+        if (carsOnParking.containsKey(carNumber)) {
+            carsOnParking.get(carNumber).setParkingEndTime(System.currentTimeMillis()); // пишем в уезжающую тачку время окончания парковки
+            checkSum(carsOnParking.get(carNumber).getParkingStartTime(), carsOnParking.get(carNumber).getParkingEndTime()); //тут считаем бабло
+            System.out.println("Авто под номером " + carNumber + " уехало.");
+            carsOnParking.remove(carNumber); //выпихиваем из мапы пару
+        } else {
+            System.out.println("Что-то напутали с номером машины, такой нет на парковке!");
+        }
         manageApp();
     }
 
     //метод для расчета бабла на оплату
     public void checkSum(long timeStart, long timeFinish) {
         float totalTime = (float) ((timeFinish - timeStart) / 60000L); // перевод в минуты и кастим
-        float payment = totalTime * (getPayment());
+        float payment = totalTime * (getPayment()); //надо придумать, как копейки считать ибо на значениях менее минуты не работает корректно
         System.out.println("Водитель заплатит " + payment + " рублей");
 
     }
