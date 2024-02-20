@@ -14,23 +14,12 @@ import java.util.Scanner;
 
 public class ParkingController {
     public static void main(String[] args) {
+
         ControlSystem controlSystem = new ControlSystem();
-        controlSystem.carArrive();
-        controlSystem.carArrive();
-        controlSystem.carArrive();
-        controlSystem.carArrive();
+        System.out.println("Приложение поддерживает варианты ввода: приезжает, уезжает, состояние, выход");
+        controlSystem.manageApp();
 
-        controlSystem.checkCurrentCars();
-
-        controlSystem.carDepart();
-
-        controlSystem.checkCurrentCars();
-
-
-
-
-
-
+        //бимбим бамбам, можете играться
 
     }
 }
@@ -70,9 +59,33 @@ class Car {
 class ControlSystem {
 
     private final int PAYMENT = 1; //тариф за минуту
-
     Map<String, Car> carsOnParking = new HashMap<>(); //бахаем хэшмап для хранения тачек
     Scanner scanner = new Scanner(System.in); //лоукост замена камере шлагбаума
+
+    //манагер для управления вашей парковочкой
+    public void manageApp() {
+        System.out.println("Приезжает или уезжает авто?");
+        String userInput = scanner.next();
+
+        switch (userInput) {
+            case "приезжает":
+                carArrive();
+            case "уезжает":
+                if (!carsOnParking.isEmpty()) {
+                    carDepart();
+                } else {
+                    System.out.println("У вас нет авто на парковке! Чему там уезжать-то, ты, пес?!");
+                    manageApp();
+                }
+            case "состояние":
+                checkCurrentCars();
+            case "выход":
+                break;
+            default:
+                System.out.println("Какую-то дичь пишете...");
+                manageApp();
+        }
+    }
 
     //метод для обработки прибытия авто
     public void carArrive() {
@@ -80,6 +93,7 @@ class ControlSystem {
         String newCar = scanner.next();
         carsOnParking.put(newCar, new Car(newCar, System.currentTimeMillis())); //пиупиу и добавили в мапу
         System.out.println("Отлично! Новое авто может быть на подходе.");
+        manageApp();
     }
 
     //метод для обработки уезда авто
@@ -90,13 +104,13 @@ class ControlSystem {
         checkSum(carsOnParking.get(carNumber).getParkingStartTime(), carsOnParking.get(carNumber).getParkingEndTime()); //тут считаем бабло
         System.out.println("Авто под номером " + carNumber + " уехало.");
         carsOnParking.remove(carNumber); //выпихиваем из мапы пару
-
+        manageApp();
     }
 
     //метод для расчета бабла на оплату
     public void checkSum(long timeStart, long timeFinish) {
-        double totalTime = (double) ((timeFinish - timeStart) / 60000L); // перевод в минуты и кастим в int
-        double payment = totalTime * (getPayment());
+        float totalTime = (float) ((timeFinish - timeStart) / 60000L); // перевод в минуты и кастим
+        float payment = totalTime * (getPayment());
         System.out.println("Водитель заплатит " + payment + " рублей");
 
     }
@@ -104,9 +118,14 @@ class ControlSystem {
 
     //это если хотим посмотреть, че там по тачкам, которые ЩАС на парковке. В целом нас интересует только ключ и тачка со своим хэшем
     public void checkCurrentCars() {
-        for(Map.Entry<String, Car> entry : carsOnParking.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+        if (!carsOnParking.isEmpty()) {
+            for(Map.Entry<String, Car> entry : carsOnParking.entrySet()) {
+                System.out.println(entry.getKey() + " : " + entry.getValue());
+            }
+        } else {
+            System.out.println("Парковка пуста!");
         }
+        manageApp();
     }
 
     public int getPayment() {
