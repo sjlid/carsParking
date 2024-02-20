@@ -39,11 +39,10 @@ public class ControlSystem {
                 case "уезжает":
                     if (!carsOnParking.isEmpty()) {
                         carDepart();
-                        continue;
                     } else {
                         System.out.println("У вас нет авто на парковке! Чему там уезжать-то, ты, пес?!");
-                        continue;
                     }
+                    continue;
                 case "состояние":
                     checkCurrentCars();
                     continue;

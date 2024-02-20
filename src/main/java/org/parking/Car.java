@@ -18,11 +18,7 @@ public class Car {
         this.plateNumber = plateNumber;
         this.parkingStartTime = parkingStartTime;
     }
-
-    public void setId(String plateNumber) {
-        this.plateNumber = plateNumber;
-    }
-    public String getId() {
+    public String getPlateNumber() {
         return plateNumber;
     }
     public long getParkingStartTime() {
