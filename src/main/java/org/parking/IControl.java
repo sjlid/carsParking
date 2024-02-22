@@ -5,4 +5,5 @@ public interface IControl {
     void carDepart();
     void checkCurrentCars();
     void checkSum(long timeStart, long timeFinish);
+    void manageApp();
 }
