@@ -115,4 +115,6 @@ public class ControlSystem implements IControl {
     public int getPayment() {
         return 1;
     }
+
+
 }

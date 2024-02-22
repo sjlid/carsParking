@@ -22,4 +22,6 @@ public class Car {
     public void setParkingEndTime(long parkingEndTime) {
         this.parkingEndTime = parkingEndTime;
     }
+
+
 }
