@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ControlSystem {
+public class ControlSystem implements IControl {
     /**
      * переменная для цикла, чтобы убрать рекурсию
      */
@@ -58,7 +58,7 @@ public class ControlSystem {
         String newCar = scanner.next();
         carsOnParking.put(
                 newCar,
-                new Car(System.currentTimeMillis()                )
+                new Car(System.currentTimeMillis())
         );
         System.out.println("Отлично! Новое авто может быть на подходе.");
     }
