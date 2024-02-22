@@ -46,7 +46,7 @@ public class ControlSystem implements IControl {
         String newCar = scanner.next();
         carsOnParking.put(
                 newCar,
-                new Car(System.currentTimeMillis())
+                new Car(newCar, System.currentTimeMillis())
         );
         System.out.println("Отлично! Новое авто может быть на подходе.");
     }
