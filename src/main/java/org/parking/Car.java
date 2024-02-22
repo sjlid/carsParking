@@ -2,11 +2,11 @@ package org.parking;
 
 public class Car {
     /**
-     * время начала парковки в минутах
+     * parking start time
      */
     private final long parkingStartTime;
     /**
-     * время конца парковки в минутах
+     * parking finish time
      */
     private long parkingEndTime;
 

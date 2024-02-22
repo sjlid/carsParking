@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ControlSystem implements IControl {
     /**
-     * переменная для цикла, чтобы убрать рекурсию
+     * boolean variable for avoiding of recursion
      */
     private boolean userCheck = true;
     Map<String, Car> carsOnParking = new HashMap<>();

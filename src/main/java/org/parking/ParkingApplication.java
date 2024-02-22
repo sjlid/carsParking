@@ -1,9 +1,9 @@
 package org.parking;
 
 /**
- * реализовываю систему для системы контроля парковки автомоблей на платной стоянке:
- * тачки заезжают под шлагбаум, стоят какое-то время на парковке, потом оплачивают время и уезжают
- *  1 час / 60 руб -> 1 минута / 1 рубль
+ * realizing emulation of app for cars parking system, where
+ * cars arrive, depart, and system can calculate the final payment
+ * and check current cars on the parking
  */
 public class ParkingApplication {
     public static void main(String[] args) {
