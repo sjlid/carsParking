@@ -9,9 +9,8 @@ public class ControlSystem implements IControl {
      * boolean variable for avoiding of recursion
      */
     private boolean userCheck = true;
-    Map<String, Car> carsOnParking = new HashMap<>();
-
-    Scanner scanner = new Scanner(System.in);
+    final Map<String, Car> carsOnParking = new HashMap<>();
+    final Scanner scanner = new Scanner(System.in);
 
     public void manageApp() {
         while (userCheck) {
@@ -30,7 +29,7 @@ public class ControlSystem implements IControl {
                     }
                     continue;
                 case "состояние":
-                    checkCurrentCars();
+                    checkCarsOnParking();
                     continue;
                 case "выход":
                     userCheck = false;
@@ -76,7 +75,7 @@ public class ControlSystem implements IControl {
         System.out.println("Водитель заплатит " + payment + " рублей");
     }
 
-    public void checkCurrentCars() {
+    public void checkCarsOnParking() {
         if (!carsOnParking.isEmpty()) {
             for(Map.Entry<String, Car> entry : carsOnParking.entrySet()) {
                 System.out.println(entry.getKey() + " сейчас на парковке");

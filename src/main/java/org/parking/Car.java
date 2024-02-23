@@ -4,13 +4,7 @@ import java.util.Objects;
 
 public class Car {
     private final String namePlate;
-    /**
-     * parking start time
-     */
     private final long parkingStartTime;
-    /**
-     * parking finish time
-     */
     private long parkingEndTime;
 
     public Car(String namePlate, long parkingStartTime) {
@@ -40,5 +34,10 @@ public class Car {
     @Override
     public int hashCode() {
         return namePlate != null ? namePlate.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Car with " + namePlate + " nameplate";
     }
 }
