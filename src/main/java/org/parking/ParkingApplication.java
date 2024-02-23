@@ -9,11 +9,7 @@ public class ParkingApplication {
     public static void main(String[] args) {
 
         ControlSystem controlSystem = new ControlSystem();
-        System.out.println("Приложение поддерживает варианты ввода: приезжает, уезжает, состояние, выход");
         controlSystem.manageApp();
-
-        //бимбим бамбам, можете играться
-
     }
 }
 
