@@ -1,6 +1,6 @@
 package org.parking;
 
-public interface IControl {
+public interface ControlInterface {
     /**
      * method for simulating car's arriving
      */

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ControlSystem implements IControl {
+public class ControlSystem implements ControlInterface {
     /**
      * boolean variable for avoiding of recursion
      */
