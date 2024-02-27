@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Parking {
     private final Map<String, Car> carsOnParking = new HashMap<>();
     private final Scanner scanner = new Scanner(System.in);
+    private final static int PARKING_SIZE = 5;
 
     /**
      * Calculates total sum for car's parking in the end of it
@@ -32,8 +33,13 @@ public class Parking {
     public void carArrive() {
         System.out.println("Какой там госномер-то?");
         String newCar = scanner.next();
-        carsOnParking.put(newCar, new Car(newCar));
-        System.out.println("Отлично! Новое авто может быть на подходе.");
+        if (carsOnParking.size() <= PARKING_SIZE) {
+            carsOnParking.put(newCar, new Car(newCar));
+            System.out.println(carsOnParking.size());
+            System.out.println("Отлично! Новое авто может быть на подходе.");
+        } else {
+            System.out.println("Места нет!");
+        }
     }
 
     public void carDepart() {
@@ -52,7 +58,7 @@ public class Parking {
     public void checkCarsOnParking() {
         if (!getCarsOnParking().isEmpty()) {
             System.out.println("Сейчас на парковке:");
-            System.out.println(carsOnParking.values());
+            System.out.println(carsOnParking.keySet());
         } else {
             System.out.println("Парковка пуста!");
         }
