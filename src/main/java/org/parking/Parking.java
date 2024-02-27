@@ -37,23 +37,20 @@ public class Parking {
                     newCar,
                     new Car(newCar)
             );
-            System.out.println("Отлично! Новое авто может быть на подходе.");
+        System.out.println("Отлично! Новое авто может быть на подходе.");
         }
     }
 
     public void carDepart() {
         System.out.println("Какой уезжает госномер?");
         String carNumber = scanner.next();
-
-        if (carNumber != null) {
-            if (carsOnParking.containsKey(carNumber)) {
-                float parkingSum = calculatePayment(carsOnParking.get(carNumber));
-                System.out.println("Авто под номером " + carNumber + " уехало.");
-                System.out.println("Водитель оплатит " + parkingSum + " рублей");
-                getCarsOnParking().remove(carNumber);
-            } else {
-                System.out.println("Что-то напутали с номером машины, такой нет на парковке!");
-            }
+        if (carsOnParking.containsKey(carNumber)) {
+            float parkingSum = calculatePayment(carsOnParking.get(carNumber));
+            System.out.println("Авто под номером " + carNumber + " уехало.");
+            System.out.println("Водитель оплатит " + parkingSum + " рублей");
+            getCarsOnParking().remove(carNumber);
+        } else {
+            System.out.println("Что-то напутали с номером машины, такой нет на парковке!");
         }
     }
 
