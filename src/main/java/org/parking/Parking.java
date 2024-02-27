@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Parking {
     private final Map<String, Car> carsOnParking = new HashMap<>();
     private final Scanner scanner = new Scanner(System.in);
-    private final static int PARKING_SIZE = 5;
+    private static final int PARKING_SIZE = 5;
 
     /**
      * Calculates total sum for car's parking in the end of it
