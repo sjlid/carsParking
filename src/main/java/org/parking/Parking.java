@@ -32,13 +32,8 @@ public class Parking {
     public void carArrive() {
         System.out.println("Какой там госномер-то?");
         String newCar = scanner.next();
-        if (newCar != null) {
-            carsOnParking.put(
-                    newCar,
-                    new Car(newCar)
-            );
+        carsOnParking.put(newCar, new Car(newCar));
         System.out.println("Отлично! Новое авто может быть на подходе.");
-        }
     }
 
     public void carDepart() {
