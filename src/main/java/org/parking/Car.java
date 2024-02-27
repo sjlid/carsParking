@@ -1,24 +1,19 @@
 package org.parking;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Car {
     private final String namePlate;
-    private final long parkingStartTime;
-    private long parkingEndTime;
+    private final LocalDateTime startTimer;
 
-    public Car(String namePlate, long parkingStartTime) {
-        this.parkingStartTime = parkingStartTime;
+    public Car(String namePlate) {
         this.namePlate = namePlate;
+        startTimer = LocalDateTime.now();
     }
-    public long getParkingStartTime() {
-        return parkingStartTime;
-    }
-    public long getParkingEndTime() {
-        return parkingEndTime;
-    }
-    public void setParkingEndTime(long parkingEndTime) {
-        this.parkingEndTime = parkingEndTime;
+
+    public LocalDateTime getStartTimer() {
+        return startTimer;
     }
 
     @Override
