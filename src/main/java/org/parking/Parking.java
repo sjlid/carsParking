@@ -31,36 +31,36 @@ public class Parking {
     }
 
     public void carArrive() {
-        System.out.println("Какой там госномер-то?");
+        System.out.println("What's the nameplate here, bro?");
         String newCar = scanner.next();
         if (carsOnParking.size() <= PARKING_SIZE) {
             carsOnParking.put(newCar, new Car(newCar));
             System.out.println(carsOnParking.size());
-            System.out.println("Отлично! Новое авто может быть на подходе.");
+            System.out.println("Cool! A new auto may arrives in the nearest minute.");
         } else {
-            System.out.println("Места нет!");
+            System.out.println("No way! Oh, sorry, I mean, no free space.");
         }
     }
 
     public void carDepart() {
-        System.out.println("Какой уезжает госномер?");
+        System.out.println("What nameplate are leaving us, man?");
         String carNumber = scanner.next();
         if (carsOnParking.containsKey(carNumber)) {
             float parkingSum = calculatePayment(carsOnParking.get(carNumber));
             System.out.println("Авто под номером " + carNumber + " уехало.");
-            System.out.println("Водитель оплатит " + parkingSum + " рублей");
+            System.out.println("Payment will be " + parkingSum + " rubles");
             getCarsOnParking().remove(carNumber);
         } else {
-            System.out.println("Что-то напутали с номером машины, такой нет на парковке!");
+            System.out.println("Dafaq, man!! We haven't any car with this nameplate.");
         }
     }
 
     public void checkCarsOnParking() {
         if (!getCarsOnParking().isEmpty()) {
-            System.out.println("Сейчас на парковке:");
+            System.out.println("Currently on the parking: ");
             System.out.println(carsOnParking.keySet());
         } else {
-            System.out.println("Парковка пуста!");
+            System.out.println("Parking is free, we haven't any cars here.");
         }
     }
 }

@@ -4,33 +4,33 @@ public class ControlSystem {
     private final Parking parking = new Parking();
 
     public void manageApp() {
-        System.out.println("Приложение поддерживает варианты ввода: приезжает, уезжает, состояние, выход");
+        System.out.println("The app maintain the following commands: arrive, depart, parking, exit");
         while (true) {
-            System.out.println("Приезжает или уезжает авто?");
+            System.out.println("Is it arriving or departing?");
             String userInput = parking
                     .getScanner()
                     .next();
 
             switch (userInput) {
-                case "приезжает":
+                case "arrive":
                     parking.carArrive();
                     continue;
-                case "уезжает":
+                case "depart":
                     if (!parking
                             .getCarsOnParking()
                             .isEmpty()) {
                         parking.carDepart();
                     } else {
-                        System.out.println("У вас нет авто на парковке! Чему там уезжать-то, ты, пес?!");
+                        System.out.println("We haven't ANY cars on our parking, man! Are you blind, cyka blyat?");
                     }
                     continue;
-                case "состояние":
+                case "parking":
                     parking.checkCarsOnParking();
                     continue;
-                case "выход":
+                case "exit":
                     return;
                 default:
-                    System.out.println("Какую-то дичь пишете...");
+                    System.out.println("What dich are you writing...");
             }
         }
     }
