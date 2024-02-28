@@ -47,7 +47,7 @@ public class Parking {
         String carNumber = scanner.next();
         if (carsOnParking.containsKey(carNumber)) {
             float parkingSum = calculatePayment(carsOnParking.get(carNumber));
-            System.out.println("Авто под номером " + carNumber + " уехало.");
+            System.out.println("Car with " + carNumber + "  nameplate has departed.");
             System.out.println("Payment will be " + parkingSum + " rubles");
             getCarsOnParking().remove(carNumber);
         } else {

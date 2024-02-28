@@ -30,7 +30,7 @@ public class ControlSystem {
                 case "exit":
                     return;
                 default:
-                    System.out.println("What dich are you writing...");
+                    System.out.println("What the dich are you writing...");
             }
         }
     }
