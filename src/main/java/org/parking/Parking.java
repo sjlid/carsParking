@@ -11,8 +11,8 @@ public class Parking {
     private final Scanner scanner = new Scanner(System.in);
     private static final int PARKING_SIZE = 5;
 
-    /**
-     * Calculates total sum for car's parking in the end of it
+                /**
+                 * Calculates total sum for car's parking in the end of it
      */
     public int calculatePayment(Car car) {
         LocalDateTime endTimer = LocalDateTime.now();
@@ -31,27 +31,35 @@ public class Parking {
     }
 
     public void carArrive() {
-        System.out.println("What's the nameplate here, bro?");
+        System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
         String newCar = scanner.next();
-        if (carsOnParking.size() <= PARKING_SIZE) {
-            carsOnParking.put(newCar, new Car(newCar));
-            System.out.println(carsOnParking.size());
-            System.out.println("Cool! A new auto may arrives in the nearest minute.");
+        if (carsOnParking.size() < PARKING_SIZE) {
+            if (newCar.length() >= 5 && newCar.length() <= 9) {
+                carsOnParking.put(newCar, new Car(newCar));
+                System.out.println(carsOnParking.size());
+                System.out.println("Cool! A new auto may arrives in the nearest minute.");
+            } else {
+                System.out.println("No way! Wrong nameplate!");
+            }
         } else {
-            System.out.println("No way! Oh, sorry, I mean, no free space.");
+            System.out.println("No way! No free space!");
         }
     }
 
     public void carDepart() {
-        System.out.println("What nameplate are leaving us, man?");
-        String carNumber = scanner.next();
-        if (carsOnParking.containsKey(carNumber)) {
-            float parkingSum = calculatePayment(carsOnParking.get(carNumber));
-            System.out.println("Car with " + carNumber + "  nameplate has departed.");
-            System.out.println("Payment will be " + parkingSum + " rubles");
-            getCarsOnParking().remove(carNumber);
+        if (!carsOnParking.isEmpty()) {
+            System.out.println("What nameplate are leaving us, man?");
+            String carNumber = scanner.next();
+            if (carsOnParking.containsKey(carNumber)) {
+                float parkingSum = calculatePayment(carsOnParking.get(carNumber));
+                System.out.println("Car with " + carNumber + "  nameplate has departed.");
+                System.out.println("Payment will be " + parkingSum + " rubles");
+                getCarsOnParking().remove(carNumber);
+            } else {
+                System.out.println("Dafaq, man!! We haven't any car with this nameplate.");
+            }
         } else {
-            System.out.println("Dafaq, man!! We haven't any car with this nameplate.");
+            System.out.println("There aren't ANY cars, biatch, on the parking!");
         }
     }
 

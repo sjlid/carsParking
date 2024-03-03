@@ -4,7 +4,7 @@ public class ControlSystem {
     private final Parking parking = new Parking();
 
     public void manageApp() {
-        System.out.println("The app maintain the following commands: arrive, depart, parking, exit");
+        System.out.println("The app maintain the following commands: arrive, depart, parking, exit.");
         while (true) {
             System.out.println("Is it arriving or departing?");
             String userInput = parking
