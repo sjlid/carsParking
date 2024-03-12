@@ -31,7 +31,6 @@ public class Parking {
     }
 
     public void carArrive() {
-        System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
         String newCar = scanner.next();
         if (carsOnParking.size() < PARKING_SIZE) {
             if (newCar.length() >= 5 && newCar.length() <= 9) {

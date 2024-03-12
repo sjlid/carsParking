@@ -13,6 +13,7 @@ public class ControlSystem {
 
             switch (userInput) {
                 case "arrive":
+                    System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
                     parking.carArrive();
                     continue;
                 case "depart":

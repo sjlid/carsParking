@@ -8,12 +8,20 @@ public class Car {
     private final LocalDateTime startTimer;
 
     public Car(String namePlate) {
-        this.namePlate = namePlate;
-        startTimer = LocalDateTime.now();
+        if (namePlate.length() >= 5 && namePlate.length() <= 9) {
+            this.namePlate = namePlate;
+        } else {
+            throw new IllegalArgumentException("No way! Wrong nameplate!");
+        }
+        this.startTimer = LocalDateTime.now();
     }
 
     public LocalDateTime getStartTimer() {
         return startTimer;
+    }
+
+    public String getNamePlate() {
+        return namePlate;
     }
 
     @Override
