@@ -1,7 +1,12 @@
 package org.parking;
 
 public class ControlSystem {
-    private final Parking parking = new Parking();
+    private final Parking parking;
+    private Car car;
+
+    public ControlSystem(Parking parking) {
+        this.parking = parking;
+    }
 
     public void manageApp() {
         System.out.println("The app maintain the following commands: arrive, depart, parking, exit.");
@@ -14,7 +19,7 @@ public class ControlSystem {
             switch (userInput) {
                 case "arrive":
                     System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
-                    parking.carArrive();
+                    parking.carArrive(car);
                     continue;
                 case "depart":
                     if (!parking

@@ -11,8 +11,8 @@ public class Parking {
     private final Scanner scanner = new Scanner(System.in);
     private static final int PARKING_SIZE = 5;
 
-                /**
-                 * Calculates total sum for car's parking in the end of it
+    /**
+     * Calculates total sum for car's parking in the end of it
      */
     public int calculatePayment(Car car) {
         LocalDateTime endTimer = LocalDateTime.now();
@@ -30,16 +30,11 @@ public class Parking {
         return scanner;
     }
 
-    public void carArrive() {
-        String newCar = scanner.next();
+    public void carArrive(Car car) {
+        String newCar = car.getNamePlate();
         if (carsOnParking.size() < PARKING_SIZE) {
-            if (newCar.length() >= 5 && newCar.length() <= 9) {
-                carsOnParking.put(newCar, new Car(newCar));
-                System.out.println(carsOnParking.size());
-                System.out.println("Cool! A new auto may arrives in the nearest minute.");
-            } else {
-                System.out.println("No way! Wrong nameplate!");
-            }
+            carsOnParking.put(newCar, car);
+            System.out.println("Cool! A new auto may arrives in the nearest minute.");
         } else {
             System.out.println("No way! No free space!");
         }

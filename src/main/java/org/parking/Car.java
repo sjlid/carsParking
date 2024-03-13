@@ -4,15 +4,11 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Car {
-    private final String namePlate;
     private final LocalDateTime startTimer;
+    private final String carNameplate;
 
-    public Car(String namePlate) {
-        if (namePlate.length() >= 5 && namePlate.length() <= 9) {
-            this.namePlate = namePlate;
-        } else {
-            throw new IllegalArgumentException("No way! Wrong nameplate!");
-        }
+    public Car(Nameplate namePlate) {
+        this.carNameplate = namePlate.getNamePlate();
         this.startTimer = LocalDateTime.now();
     }
 
@@ -21,7 +17,7 @@ public class Car {
     }
 
     public String getNamePlate() {
-        return namePlate;
+        return carNameplate;
     }
 
     @Override
@@ -31,16 +27,16 @@ public class Car {
 
         Car car = (Car) o;
 
-        return Objects.equals(namePlate, car.namePlate);
+        return Objects.equals(carNameplate, car.carNameplate);
     }
 
     @Override
     public int hashCode() {
-        return namePlate != null ? namePlate.hashCode() : 0;
+        return carNameplate != null ? carNameplate.hashCode() : 0;
     }
 
     @Override
     public String toString() {
-        return "Car with " + namePlate + " nameplate";
+        return "Car with " + carNameplate + " nameplate";
     }
 }

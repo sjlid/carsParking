@@ -7,8 +7,8 @@ package org.parking;
  */
 public class ParkingApplication {
     public static void main(String[] args) {
-
-        ControlSystem controlSystem = new ControlSystem();
+        Parking parking = new Parking();
+        ControlSystem controlSystem = new ControlSystem(parking);
         controlSystem.manageApp();
     }
 }
