@@ -15,10 +15,7 @@ public class ControlSystem {
         System.out.println("The app maintain the following commands: arrive, depart, parking, exit.");
         while (true) {
             System.out.println("Is it arriving or departing?");
-            String userInput = parking
-                    .getScanner()
-                    .next();
-
+            String userInput = scanner.next();
             switch (userInput) {
                 case "arrive":
                     System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
@@ -30,7 +27,7 @@ public class ControlSystem {
                             .isEmpty()) {
                         parking.carDepart();
                     } else {
-                        System.out.println("We haven't ANY cars on our parking, man! Are you blind, cyka blyat?");
+                        System.out.println("We haven't ANY cars on our parking, man!");
                     }
                     continue;
                 case "parking":
@@ -39,7 +36,7 @@ public class ControlSystem {
                 case "exit":
                     return;
                 default:
-                    System.out.println("What the dich are you writing...");
+                    System.out.println("Ah?! I dunno what is it...");
             }
         }
     }

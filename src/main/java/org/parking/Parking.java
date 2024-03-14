@@ -50,10 +50,10 @@ public class Parking {
                 System.out.println("Payment will be " + parkingSum + " rubles");
                 getCarsOnParking().remove(carNumber);
             } else {
-                System.out.println("Dafaq, man!! We haven't any car with this nameplate.");
+                System.out.println("Man! We haven't any car with this nameplate.");
             }
         } else {
-            System.out.println("There aren't ANY cars, biatch, on the parking!");
+            System.out.println("There aren't ANY cars on the parking!");
         }
     }
 
