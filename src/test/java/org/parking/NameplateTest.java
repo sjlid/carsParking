@@ -10,7 +10,7 @@ class NameplateTest {
     void length_of_nameplate_should_be_between_5_and_9(){
         Nameplate nameplate = new Nameplate("213ew");
 
-        assertThat(nameplate.getNamePlate()).isEqualTo("213ew");
+        assertThat(nameplate.namePlate()).isEqualTo("213ew");
     }
 
     @Test

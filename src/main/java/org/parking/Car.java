@@ -8,7 +8,7 @@ public class Car {
     private final String carNameplate;
 
     public Car(Nameplate namePlate) {
-        this.carNameplate = namePlate.getNamePlate();
+        this.carNameplate = namePlate.namePlate();
         this.startTimer = LocalDateTime.now();
     }
 
