@@ -15,7 +15,6 @@ public class Car {
     public LocalDateTime getStartTimer() {
         return startTimer;
     }
-
     public String getNamePlate() {
         return carNameplate;
     }

@@ -8,8 +8,10 @@ import java.util.Scanner;
 
 public class Parking {
     private final Map<String, Car> carsOnParking = new HashMap<>();
-    private final Scanner scanner = new Scanner(System.in);
     private static final int PARKING_SIZE = 5;
+    private final Scanner scanner = new Scanner(System.in);
+
+
 
     /**
      * Calculates total sum for car's parking in the end of it
@@ -19,21 +21,20 @@ public class Parking {
         Duration totalMinutes = Duration.between(car.getStartTimer(), endTimer);
         return  totalMinutes.toMinutesPart() * getPayment();
     }
-
     public int getPayment() {
         return 1;
     }
     public Map<String, Car> getCarsOnParking() {
         return carsOnParking;
     }
-    public Scanner getScanner() {
-        return scanner;
-    }
 
-    public void carArrive(Car car) {
-        String newCar = car.getNamePlate();
+    public void carArrive() {
+        System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
+        Nameplate nameplate = new Nameplate(scanner.next());
+        Car car = new Car(nameplate);
+        String carArriving = car.getNamePlate();
         if (carsOnParking.size() < PARKING_SIZE) {
-            carsOnParking.put(newCar, car);
+            carsOnParking.put(carArriving, car);
             System.out.println("Cool! A new auto may arrives in the nearest minute.");
         } else {
             System.out.println("No way! No free space!");
@@ -43,12 +44,14 @@ public class Parking {
     public void carDepart() {
         if (!carsOnParking.isEmpty()) {
             System.out.println("What nameplate are leaving us, man?");
-            String carNumber = scanner.next();
-            if (carsOnParking.containsKey(carNumber)) {
-                float parkingSum = calculatePayment(carsOnParking.get(carNumber));
-                System.out.println("Car with " + carNumber + "  nameplate has departed.");
+            Nameplate nameplate = new Nameplate(scanner.next());
+            Car car = new Car(nameplate);
+            String carDeparting = car.getNamePlate();
+            if (carsOnParking.containsKey(carDeparting)) {
+                float parkingSum = calculatePayment(carsOnParking.get(carDeparting));
+                System.out.println("Car with " + carDeparting + "  nameplate has departed.");
                 System.out.println("Payment will be " + parkingSum + " rubles");
-                getCarsOnParking().remove(carNumber);
+                getCarsOnParking().remove(carDeparting);
             } else {
                 System.out.println("Man! We haven't any car with this nameplate.");
             }
