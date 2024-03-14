@@ -14,7 +14,4 @@ public class Nameplate {
     public String getNamePlate() {
         return namePlate;
     }
-    public void setNamePlate(String namePlate) {
-        this.namePlate = namePlate;
-    }
 }
