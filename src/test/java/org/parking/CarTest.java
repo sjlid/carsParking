@@ -13,4 +13,9 @@ class CarTest {
         assertThat(car.getNamePlate()).isEqualTo("12313");
     }
 
+    @Test
+    void there_cannot_be_two_cars_with_equal_nameplate() {
+        //
+    }
+
 }

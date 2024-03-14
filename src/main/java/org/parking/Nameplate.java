@@ -1,7 +1,7 @@
 package org.parking;
 
 public class Nameplate {
-    private String namePlate;
+    private final String namePlate;
 
     public Nameplate(String namePlate) {
         if (namePlate.length() >= 5
