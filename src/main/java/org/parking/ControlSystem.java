@@ -1,7 +1,10 @@
 package org.parking;
 
+import java.util.Scanner;
+
 public class ControlSystem {
     private final Parking parking;
+    private final Scanner scanner = new Scanner(System.in);
     private Car car;
 
     public ControlSystem(Parking parking) {
