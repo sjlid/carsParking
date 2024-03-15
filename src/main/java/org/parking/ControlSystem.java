@@ -17,22 +17,14 @@ public class ControlSystem {
             String userInput = scanner.next();
             switch (userInput) {
                 case "arrive":
-                    if (parking.getCarsOnParking().size() < Parking.PARKING_SIZE) {
-                        System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
-                        Car car = new Car(new Nameplate(scanner.next()));
-                        parking.carArrive(car);
-                    } else {
-                        System.out.println("No way! No free space!");
-                    }
+                    System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
+                    Car car = new Car(new Nameplate(scanner.next()));
+                    parking.carArrive(car);
                     continue;
                 case "depart":
-                    if (!parking.getCarsOnParking().isEmpty()) {
-                        System.out.println("What nameplate are leaving us, man?");
-                        parking.carDepart(parking.getCarsOnParking()
-                                .get(scanner.next()));
-                    } else {
-                        System.out.println("There aren't ANY cars on the parking!");
-                    }
+                    System.out.println("What nameplate are leaving us, man?");
+                    parking.carDepart(parking.getCarsOnParking()
+                            .get(scanner.next()));
                     continue;
                 case "parking":
                     parking.checkCarsOnParking();

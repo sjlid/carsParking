@@ -25,22 +25,30 @@ public class Parking {
     }
 
     public void carArrive(Car car) {
-        if (!carsOnParking.containsKey(car.getNamePlate())) {
-            carsOnParking.put(car.getNamePlate(), car);
-            System.out.println("Cool! A new auto may arrives in the nearest minute.");
+        if (carsOnParking.size() < PARKING_SIZE) {
+            if (!carsOnParking.containsKey(car.getNamePlate())) {
+                carsOnParking.put(car.getNamePlate(), car);
+                System.out.println("Cool! A new auto may arrives in the nearest minute.");
+            } else {
+                System.out.println("Nope! Duplicated nameplate!");
+            }
         } else {
-            System.out.println("Nope! Duplicated nameplate!");
+            System.out.println("No way! No free space!");
         }
     }
 
     public void carDepart(Car car) {
-        if (carsOnParking.containsKey(car.getNamePlate())) {
-            float parkingSum = calculatePayment(carsOnParking.get(car.getNamePlate()));
-            System.out.println("Car with " + car.getNamePlate() + " nameplate has departed.");
-            System.out.println("Payment will be " + parkingSum + " rubles");
-            getCarsOnParking().remove(car.getNamePlate());
+        if (!carsOnParking.isEmpty()) {
+            if (carsOnParking.containsKey(car.getNamePlate())) {
+                float parkingSum = calculatePayment(carsOnParking.get(car.getNamePlate()));
+                System.out.println("Car with " + car.getNamePlate() + " nameplate has departed.");
+                System.out.println("Payment will be " + parkingSum + " rubles");
+                getCarsOnParking().remove(car.getNamePlate());
+            } else {
+                System.out.println("Man! We haven't any car with this nameplate.");
+            }
         } else {
-            System.out.println("Man! We haven't any car with this nameplate.");
+            System.out.println("There aren't ANY cars on the parking!");
         }
     }
 
