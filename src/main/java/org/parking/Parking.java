@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Parking {
     private final Map<String, Car> carsOnParking = new HashMap<>();
-    private static final int PARKING_SIZE = 5;
+    public static final int PARKING_SIZE = 5;
 
     /**
      * Calculates total sum for car's parking in the end of it
@@ -25,18 +25,18 @@ public class Parking {
     }
 
     public void carArrive(Car car) {
-        if (carsOnParking.size() < PARKING_SIZE) {
+        if (!carsOnParking.containsKey(car.getNamePlate())) {
             carsOnParking.put(car.getNamePlate(), car);
             System.out.println("Cool! A new auto may arrives in the nearest minute.");
         } else {
-            System.out.println("No way! No free space!");
+            System.out.println("Nope! Duplicated nameplate!");
         }
     }
 
     public void carDepart(Car car) {
         if (carsOnParking.containsKey(car.getNamePlate())) {
             float parkingSum = calculatePayment(carsOnParking.get(car.getNamePlate()));
-            System.out.println("Car with " + car.getNamePlate() + "  nameplate has departed.");
+            System.out.println("Car with " + car.getNamePlate() + " nameplate has departed.");
             System.out.println("Payment will be " + parkingSum + " rubles");
             getCarsOnParking().remove(car.getNamePlate());
         } else {
