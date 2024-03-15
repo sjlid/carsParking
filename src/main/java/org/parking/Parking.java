@@ -4,14 +4,10 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Parking {
     private final Map<String, Car> carsOnParking = new HashMap<>();
     private static final int PARKING_SIZE = 5;
-    private final Scanner scanner = new Scanner(System.in);
-
-
 
     /**
      * Calculates total sum for car's parking in the end of it
@@ -28,9 +24,7 @@ public class Parking {
         return carsOnParking;
     }
 
-    public void carArrive() {
-        System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
-        String nameplate = scanner.next();
+    public void carArrive(String nameplate) {
         Car car = new Car(new Nameplate(nameplate));
         if (carsOnParking.size() < PARKING_SIZE) {
             carsOnParking.put(nameplate, car);
@@ -40,20 +34,14 @@ public class Parking {
         }
     }
 
-    public void carDepart() {
-        if (!carsOnParking.isEmpty()) {
-            System.out.println("What nameplate are leaving us, man?");
-            String nameplate = scanner.next();
-            if (carsOnParking.containsKey(nameplate)) {
-                float parkingSum = calculatePayment(carsOnParking.get(nameplate));
-                System.out.println("Car with " + nameplate + "  nameplate has departed.");
-                System.out.println("Payment will be " + parkingSum + " rubles");
-                getCarsOnParking().remove(nameplate);
-            } else {
-                System.out.println("Man! We haven't any car with this nameplate.");
-            }
+    public void carDepart(String nameplate) {
+        if (carsOnParking.containsKey(nameplate)) {
+            float parkingSum = calculatePayment(carsOnParking.get(nameplate));
+            System.out.println("Car with " + nameplate + "  nameplate has departed.");
+            System.out.println("Payment will be " + parkingSum + " rubles");
+            getCarsOnParking().remove(nameplate);
         } else {
-            System.out.println("There aren't ANY cars on the parking!");
+            System.out.println("Man! We haven't any car with this nameplate.");
         }
     }
 
