@@ -24,8 +24,8 @@ public class ControlSystem {
                 case "depart":
                     if (!parking.getCarsOnParking().isEmpty()) {
                         System.out.println("What nameplate are leaving us, man?");
-
-                        parking.carDepart();
+                        parking.carDepart(parking.getCarsOnParking()
+                                .get(scanner.next()));
                         continue;
                     } else {
                         System.out.println("There aren't ANY cars on the parking!");
