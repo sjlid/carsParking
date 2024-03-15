@@ -24,22 +24,21 @@ public class Parking {
         return carsOnParking;
     }
 
-    public void carArrive(String nameplate) {
-        Car car = new Car(new Nameplate(nameplate));
+    public void carArrive(Car car) {
         if (carsOnParking.size() < PARKING_SIZE) {
-            carsOnParking.put(nameplate, car);
+            carsOnParking.put(car.getNamePlate(), car);
             System.out.println("Cool! A new auto may arrives in the nearest minute.");
         } else {
             System.out.println("No way! No free space!");
         }
     }
 
-    public void carDepart(String nameplate) {
-        if (carsOnParking.containsKey(nameplate)) {
-            float parkingSum = calculatePayment(carsOnParking.get(nameplate));
-            System.out.println("Car with " + nameplate + "  nameplate has departed.");
+    public void carDepart(Car car) {
+        if (carsOnParking.containsKey(car.getNamePlate())) {
+            float parkingSum = calculatePayment(carsOnParking.get(car.getNamePlate()));
+            System.out.println("Car with " + car.getNamePlate() + "  nameplate has departed.");
             System.out.println("Payment will be " + parkingSum + " rubles");
-            getCarsOnParking().remove(nameplate);
+            getCarsOnParking().remove(car.getNamePlate());
         } else {
             System.out.println("Man! We haven't any car with this nameplate.");
         }
