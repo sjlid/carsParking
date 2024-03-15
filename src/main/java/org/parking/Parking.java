@@ -30,11 +30,10 @@ public class Parking {
 
     public void carArrive() {
         System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
-        Nameplate nameplate = new Nameplate(scanner.next());
-        Car car = new Car(nameplate);
-        String carArriving = car.getNamePlate();
+        String nameplate = scanner.next();
+        Car car = new Car(new Nameplate(nameplate));
         if (carsOnParking.size() < PARKING_SIZE) {
-            carsOnParking.put(carArriving, car);
+            carsOnParking.put(nameplate, car);
             System.out.println("Cool! A new auto may arrives in the nearest minute.");
         } else {
             System.out.println("No way! No free space!");
@@ -44,14 +43,12 @@ public class Parking {
     public void carDepart() {
         if (!carsOnParking.isEmpty()) {
             System.out.println("What nameplate are leaving us, man?");
-            Nameplate nameplate = new Nameplate(scanner.next());
-            Car car = new Car(nameplate);
-            String carDeparting = car.getNamePlate();
-            if (carsOnParking.containsKey(carDeparting)) {
-                float parkingSum = calculatePayment(carsOnParking.get(carDeparting));
-                System.out.println("Car with " + carDeparting + "  nameplate has departed.");
+            String nameplate = scanner.next();
+            if (carsOnParking.containsKey(nameplate)) {
+                float parkingSum = calculatePayment(carsOnParking.get(nameplate));
+                System.out.println("Car with " + nameplate + "  nameplate has departed.");
                 System.out.println("Payment will be " + parkingSum + " rubles");
-                getCarsOnParking().remove(carDeparting);
+                getCarsOnParking().remove(nameplate);
             } else {
                 System.out.println("Man! We haven't any car with this nameplate.");
             }
