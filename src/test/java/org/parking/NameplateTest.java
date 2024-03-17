@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class NameplateTest {
+
+
     @Test
     void length_of_nameplate_should_be_between_5_and_9(){
         Nameplate nameplate = new Nameplate("213ew");

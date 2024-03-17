@@ -30,10 +30,10 @@ public class Parking {
                 carsOnParking.put(car.getNamePlate(), car);
                 System.out.println("Cool! A new auto may arrives in the nearest minute.");
             } else {
-                System.out.println("Nope! Duplicated nameplate!");
+                throw new IllegalArgumentException("Nope! Duplicated nameplate!");
             }
         } else {
-            System.out.println("No way! No free space!");
+            throw new IllegalArgumentException("No way! No free space!");
         }
     }
 
