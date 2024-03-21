@@ -34,7 +34,7 @@ class NameplateTest {
     }
 
     @Test
-    void nameplate_should_not_be_null() {
+    void nameplate_should_not_be_empty() {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> new Nameplate(""));
     }

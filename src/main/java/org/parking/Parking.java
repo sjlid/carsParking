@@ -2,30 +2,38 @@ package org.parking;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Parking {
     private final Map<String, Car> carsOnParking = new HashMap<>();
-    public static final int PARKING_SIZE = 5;
+    private final int parkingSize;
+    private final int parkingCost;
+
+
+    public Parking(int parkingSize, int parkingCost) {
+        this.parkingSize = parkingSize;
+        this.parkingCost = parkingCost;
+    }
 
     /**
      * Calculates total sum for car's parking in the end of it
      */
-    public int calculatePayment(Car car) {
+    private int calculatePayment(Car car) {
         LocalDateTime endTimer = LocalDateTime.now();
         Duration totalMinutes = Duration.between(car.getStartTimer(), endTimer);
         return  totalMinutes.toMinutesPart() * getPayment();
     }
-    public int getPayment() {
-        return 1;
+    private int getPayment() {
+        return parkingCost;
     }
     public Map<String, Car> getCarsOnParking() {
-        return carsOnParking;
+        return Collections.unmodifiableMap(carsOnParking);
     }
 
     public void carArrive(Car car) {
-        if (carsOnParking.size() < PARKING_SIZE) {
+        if (carsOnParking.size() < parkingSize) {
             if (!carsOnParking.containsKey(car.getNamePlate())) {
                 carsOnParking.put(car.getNamePlate(), car);
                 System.out.println("Cool! A new auto may arrives in the nearest minute.");
