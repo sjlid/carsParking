@@ -36,7 +36,6 @@ public class Parking {
         if (carsOnParking.size() < parkingSize) {
             if (!carsOnParking.containsKey(car.getNamePlate())) {
                 carsOnParking.put(car.getNamePlate(), car);
-                System.out.println("Cool! A new auto may arrives in the nearest minute.");
             } else {
                 throw new IllegalArgumentException("Nope! Duplicated nameplate!");
             }

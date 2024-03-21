@@ -20,6 +20,7 @@ public class ControlSystem {
                     System.out.println("What's the nameplate here, bro? It should be not less than 5 characters and no more than 9 characters");
                     Car car = new Car(new Nameplate(scanner.next()));
                     parking.carArrive(car);
+                    System.out.println("Cool! A new auto may arrives in the nearest minute.");
                     continue;
                 case "depart":
                     System.out.println("What nameplate are leaving us, man?");
