@@ -51,7 +51,7 @@ public class Parking {
                 float parkingSum = calculatePayment(carsOnParking.get(car.getNamePlate()));
                 System.out.println("Car with " + car.getNamePlate() + " nameplate has departed.");
                 System.out.println("Payment will be " + parkingSum + " rubles");
-                getCarsOnParking().remove(car.getNamePlate());
+                carsOnParking.remove(car.getNamePlate());
             } else {
                 System.out.println("Man! We haven't any car with this nameplate.");
             }
@@ -61,7 +61,7 @@ public class Parking {
     }
 
     public void checkCarsOnParking() {
-        if (!getCarsOnParking().isEmpty()) {
+        if (!carsOnParking.isEmpty()) {
             System.out.println("Currently on the parking: ");
             System.out.println(carsOnParking.keySet());
         } else {

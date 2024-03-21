@@ -11,7 +11,7 @@ class ParkingTest {
 
     @Test
     void parking_size_cannot_be_overflowed() {
-        Parking parking = new Parking();
+        Parking parking = new Parking(5, 1);
 
         parking.carArrive(new Car(new Nameplate("11111")));
         parking.carArrive(new Car(new Nameplate("22222")));
@@ -26,7 +26,7 @@ class ParkingTest {
 
     @Test
     void there_cannot_be_two_cars_with_same_nameplate() {
-        Parking parking = new Parking();
+        Parking parking = new Parking(5, 1);
         parking.carArrive(new Car(new Nameplate("11111")));
 
         assertThatIllegalArgumentException()
@@ -35,7 +35,7 @@ class ParkingTest {
 
     @Test
     void parking_contains_all_arrived_cars() {
-        Parking parking = new Parking();
+        Parking parking = new Parking(5, 1);
         parking.carArrive(new Car(new Nameplate("11111")));
         parking.carArrive(new Car(new Nameplate("22222")));
 
