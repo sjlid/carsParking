@@ -30,7 +30,7 @@ public class ControlSystem {
                     System.out.println("Car with " + carDeparting + " nameplate has departed.");
                     continue;
                 case "parking":
-                    parking.checkCarsOnParking();
+                    System.out.println("Currently we have the following cars here: \n" + parking.checkCarsOnParking());
                     continue;
                 case "exit":
                     return;

@@ -53,12 +53,10 @@ public class Parking {
     }
 
 
-    public void checkCarsOnParking() {
-        if (!carsOnParking.isEmpty()) {
-            System.out.println("Currently on the parking: ");
-            System.out.println(carsOnParking.keySet());
-        } else {
-            System.out.println("Parking is free, we haven't any cars here.");
+    public String checkCarsOnParking() {
+        if (carsOnParking.isEmpty()) {
+            throw new IllegalArgumentException("Parking is free, we haven't any cars here.");
         }
+        return carsOnParking.keySet().toString();
     }
 }
