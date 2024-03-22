@@ -24,8 +24,10 @@ public class ControlSystem {
                     continue;
                 case "depart":
                     System.out.println("What nameplate are leaving us, man?");
-                    parking.carDepart(parking.getCarsOnParking()
-                            .get(scanner.next()));
+                    String carDeparting = scanner.next();
+                    System.out.println("Payment will be " + parking.carDepart(parking.getCarsOnParking()
+                            .get(carDeparting)) + " rubles");
+                    System.out.println("Car with " + carDeparting + " nameplate has departed.");
                     continue;
                 case "parking":
                     parking.checkCarsOnParking();
