@@ -2,5 +2,5 @@ Simulation of parking station, where cars can arrive, depart and you can check c
 Also I added some auto-tests via AssertJ library. Application following MVC architecture.
 
 Further plans are: 
-- refactoring with Spring MVC to add controls for the app in the web instead of console
+- refactoring with Spring Framework
 - adding real DB as a data storage for cars
