@@ -1,7 +1,7 @@
 package org.parking;
 
 import org.junit.jupiter.api.Test;
-import org.parking.model.Nameplate;
+import org.parking.models.Nameplate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
