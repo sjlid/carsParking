@@ -1,5 +1,8 @@
 package org.parking;
 
+import org.parking.controller.ControlSystem;
+import org.parking.model.Parking;
+
 /**
  * realizing emulation of app for cars parking system, where
  * cars arrive, depart, and system can calculate the final payment
