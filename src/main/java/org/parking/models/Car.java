@@ -1,13 +1,22 @@
 package org.parking.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
 public class Car {
+
+    @NotEmpty
+    @Column(name = "startTimer")
     private final LocalDateTime startTimer;
+
+    @Id
+    @Column(name = "id")
     private final String carNameplate;
 
     public Car(Nameplate namePlate) {
