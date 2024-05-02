@@ -1,11 +1,8 @@
 package org.parking.models;
 
-import jakarta.persistence.Entity;
-
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity
 public class Car {
     private final LocalDateTime startTimer;
     private final String carNameplate;
