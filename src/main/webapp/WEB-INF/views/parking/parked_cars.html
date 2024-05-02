@@ -7,7 +7,7 @@
 <body>
 <div th:each="car : ${parking}">
     <a th:href="@{/parking/{nameplate}(nameplate=${car.getNamePlate()})}"
-       th:text="${car.getNamePlate() + ', ' + person.getStartTimer()}">Car</a>
+       th:text="${car.getNamePlate() + ', ' + car.getStartTimer()}">Car</a>
 </div>
 </body>
 </html>

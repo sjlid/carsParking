@@ -24,7 +24,7 @@ public class ControlSystem {
     }
 
 
-    @GetMapping
+    @GetMapping("/parked_cars")
     public String carsOnParking(Model model) {
         model.addAttribute("parking", parkingDAO.carsOnParking());
         return "parking/parked_cars";
@@ -35,6 +35,17 @@ public class ControlSystem {
     public String showMenu() {
         return "parking/menu";
     }
+
+    @GetMapping("/arrive")
+    public String arriving() {
+        return "parking/arrive";
+    }
+
+    @GetMapping("/depart")
+    public String departing() {
+        return "parking/depart";
+    }
+
 
 
 
