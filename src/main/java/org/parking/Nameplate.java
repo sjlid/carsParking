@@ -1,4 +1,4 @@
-package org.parking.model;
+package org.parking;
 
 public class Nameplate {
     private final String namePlate;

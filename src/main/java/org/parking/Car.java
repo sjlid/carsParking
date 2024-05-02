@@ -1,4 +1,4 @@
-package org.parking.model;
+package org.parking;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
