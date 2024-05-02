@@ -12,7 +12,7 @@ class CarTest {
         Nameplate nameplate = new Nameplate("12313");
         Car car = new Car(nameplate);
 
-        assertThat(car.getNamePlate()).isEqualTo("12313");
+        assertThat(car.getCarNameplate()).isEqualTo("12313");
     }
 
 }

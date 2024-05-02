@@ -31,18 +31,28 @@ public class Car {
         this.startTimer = LocalDateTime.now();
     }
 
-    public LocalDateTime getStartTimer() {
-        return startTimer;
-    }
-    public String getNamePlate() {
-        return carNameplate;
-    }
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public LocalDateTime getStartTimer() {
+        return startTimer;
+    }
+
+    public void setStartTimer(LocalDateTime startTimer) {
+        this.startTimer = startTimer;
+    }
+
+    public String getCarNameplate() {
+        return carNameplate;
+    }
+
+    public void setCarNameplate(String carNameplate) {
+        this.carNameplate = carNameplate;
     }
 
     @Override
