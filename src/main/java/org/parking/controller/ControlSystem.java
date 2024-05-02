@@ -1,5 +1,6 @@
 package org.parking.controller;
 
+import jakarta.validation.Valid;
 import org.parking.dao.ParkingDAO;
 import org.parking.models.Car;
 import org.parking.models.Nameplate;
@@ -7,7 +8,10 @@ import org.parking.models.Parking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Scanner;
@@ -26,7 +30,7 @@ public class ControlSystem {
 
     @GetMapping("/parked_cars")
     public String carsOnParking(Model model) {
-        model.addAttribute("parking", parkingDAO.carsOnParking());
+        model.addAttribute("cars", parkingDAO.carsOnParking());
         return "parking/parked_cars";
     }
 
@@ -37,12 +41,20 @@ public class ControlSystem {
     }
 
     @GetMapping("/arrive")
-    public String arriving() {
+    public String newCar(Model model) {
+        model.addAttribute("car", new Car());
         return "parking/arrive";
     }
 
+    @PostMapping
+    public String create(@ModelAttribute("car") Car car) {
+        parkingDAO.carArrive(car);
+        return "redirect:/menu";
+    }
+
+
     @GetMapping("/depart")
-    public String departing() {
+    public String delete() {
         return "parking/depart";
     }
 

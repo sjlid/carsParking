@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -22,22 +23,21 @@ public class ParkingDAO {
     }
 
     @Transactional
-    public void carArrive(Nameplate nameplate) {
+    public void carArrive(Car car) {
         Session session = sessionFactory.getCurrentSession();
-        session.persist(nameplate);
+        session.persist(car);
     }
 
     @Transactional
-    public void carDepart(Nameplate nameplate) {
+    public void carDepart(int id) {
         Session session = sessionFactory.getCurrentSession();
-        session.remove(session.get(Car.class, nameplate));
-
+        session.remove(session.get(Car.class, id));
     }
 
     @Transactional(readOnly = true)
     public List<Car> carsOnParking() {
         Session session = sessionFactory.getCurrentSession();
 
-        return session.createQuery("select p from Cars p", Car.class).getResultList();
+        return session.createQuery("select p from cars p", Car.class).getResultList();
     }
 }

@@ -7,15 +7,16 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
+@Table(name = "cars")
 public class Car {
 
     @Id
-    @Column(name= "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "id")
     private int id;
 
-    @NotEmpty
-    @Column(name = "startTimer")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "starttime")
     private LocalDateTime startTimer;
 
     @Embedded
@@ -38,6 +39,10 @@ public class Car {
     }
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

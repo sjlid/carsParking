@@ -5,9 +5,9 @@
     <title>Parking Simulator</title>
 </head>
 <body>
-<div th:each="car : ${parking}">
-    <a th:href="@{/parking/{nameplate}(nameplate=${car.getNamePlate()})}"
-       th:text="${car.getNamePlate() + ', ' + car.getStartTimer()}">Car</a>
+<div th:each="car : ${cars}">
+    <a th:href="@{/parking/{id}(id=${car.getId()})}"
+       th:text="${car.getId()}">car</a>
 </div>
 </body>
 </html>
