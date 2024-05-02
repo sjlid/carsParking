@@ -6,5 +6,5 @@ Current plans are:
 - adding real DB as a data storage for cars
 
 Branches:
-master - console version (completed)
-spring - web version (in progress)
+- master - console version (completed)
+- spring - web version (in progress)
