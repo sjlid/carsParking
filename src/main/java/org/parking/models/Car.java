@@ -1,8 +1,6 @@
 package org.parking.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDateTime;
@@ -11,13 +9,21 @@ import java.util.Objects;
 @Entity
 public class Car {
 
+    @Id
+    @Column(name= "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @NotEmpty
     @Column(name = "startTimer")
-    private final LocalDateTime startTimer;
+    private LocalDateTime startTimer;
 
-    @Id
-    @Column(name = "id")
-    private final String carNameplate;
+    @Embedded
+    @Column(name = "nameplate")
+    private String carNameplate;
+
+    public Car() {
+    }
 
     public Car(Nameplate namePlate) {
         this.carNameplate = namePlate.getNamePlate();
@@ -29,6 +35,9 @@ public class Car {
     }
     public String getNamePlate() {
         return carNameplate;
+    }
+    public int getId() {
+        return id;
     }
 
     @Override

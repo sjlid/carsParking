@@ -8,6 +8,8 @@ import java.util.Map;
 
 
 public class Parking {
+
+    /*
     private final Map<String, Car> carsOnParking = new HashMap<>();
     private final int parkingSize;
     private final int parkingCost;
@@ -43,10 +45,12 @@ public class Parking {
         carsOnParking.remove(car.getNamePlate());
         return parkingCost;
     }
+     */
 
     /**
      * Calculates total sum for car's parking in the end of it
      */
+    /*
     private int calculatePayment(Car car) {
         LocalDateTime endTimer = LocalDateTime.now();
         Duration totalMinutes = Duration.between(car.getStartTimer(), endTimer);
@@ -59,4 +63,6 @@ public class Parking {
         }
         return carsOnParking.keySet().toString();
     }
+     */
+
 }

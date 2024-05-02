@@ -3,6 +3,7 @@ package org.parking.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.parking.models.Car;
+import org.parking.models.Nameplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,12 +22,15 @@ public class ParkingDAO {
     }
 
     @Transactional
-    public void carArrive(Car car) {
-
+    public void carArrive(Nameplate nameplate) {
+        Session session = sessionFactory.getCurrentSession();
+        session.persist(nameplate);
     }
 
     @Transactional
-    public void carDepart(Car car) {
+    public void carDepart(Nameplate nameplate) {
+        Session session = sessionFactory.getCurrentSession();
+        session.remove(session.get(Car.class, nameplate));
 
     }
 
@@ -34,6 +38,6 @@ public class ParkingDAO {
     public List<Car> carsOnParking() {
         Session session = sessionFactory.getCurrentSession();
 
-        return session.createQuery("select p from Parking p", Car.class).getResultList();
+        return session.createQuery("select p from Cars p", Car.class).getResultList();
     }
 }

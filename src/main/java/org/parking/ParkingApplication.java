@@ -10,9 +10,11 @@ import org.parking.models.Parking;
  */
 public class ParkingApplication {
     public static void main(String[] args) {
+        /*
         Parking parking = new Parking(5, 1);
         ControlSystem controlSystem = new ControlSystem(parking);
         controlSystem.manageApp();
+         */
     }
 }
 

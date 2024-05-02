@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 class ParkingTest {
 
-
+    /*
     @Test
     void parking_size_cannot_be_overflowed() {
         Parking parking = new Parking(5,1);
@@ -45,4 +45,6 @@ class ParkingTest {
         assertThat(parking.getCarsOnParking()).containsAllEntriesOf(parking.getCarsOnParking());
 
     }
+
+     */
 }

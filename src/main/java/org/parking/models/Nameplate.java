@@ -1,9 +1,11 @@
 package org.parking.models;
 
+import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+@Embeddable
 public class Nameplate {
 
     @NotEmpty(message = "Name should not be empty")
