@@ -1,14 +1,6 @@
 package org.parking.models;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
-
 public class Nameplate {
-
-    @NotEmpty(message = "Name should not be empty")
-    @Size(min = 5, max = 9, message = "Nameplate should be between 5 and 9 characters")
-    @Pattern(regexp = "[a-zA-Z0-9]$", message = "Nameplate should contain only letters and digits")
     private final String namePlate;
 
     public Nameplate(String namePlate) {

@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class Parking {
     private final Map<String, Car> carsOnParking = new HashMap<>();
     private final int parkingSize;
@@ -18,6 +17,14 @@ public class Parking {
         this.parkingCost = parkingCost;
     }
 
+    /**
+     * Calculates total sum for car's parking in the end of it
+     */
+    private int calculatePayment(Car car) {
+        LocalDateTime endTimer = LocalDateTime.now();
+        Duration totalMinutes = Duration.between(car.getStartTimer(), endTimer);
+        return totalMinutes.toMinutesPart() * parkingCost;
+    }
     public Map<String, Car> getCarsOnParking() {
         return Collections.unmodifiableMap(carsOnParking);
     }
@@ -32,6 +39,7 @@ public class Parking {
         carsOnParking.put(car.getNamePlate(), car);
     }
 
+
     public float carDepart(Car car) {
         if (carsOnParking.isEmpty()) {
             throw new IllegalArgumentException("There aren't ANY cars on the parking!");
@@ -44,14 +52,6 @@ public class Parking {
         return parkingCost;
     }
 
-    /**
-     * Calculates total sum for car's parking in the end of it
-     */
-    private int calculatePayment(Car car) {
-        LocalDateTime endTimer = LocalDateTime.now();
-        Duration totalMinutes = Duration.between(car.getStartTimer(), endTimer);
-        return totalMinutes.toMinutesPart() * parkingCost;
-    }
 
     public String checkCarsOnParking() {
         if (carsOnParking.isEmpty()) {
