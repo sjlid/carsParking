@@ -1,8 +1,8 @@
 package org.parking.controller;
 
-import org.parking.models.Car;
-import org.parking.models.Nameplate;
-import org.parking.models.Parking;
+import org.parking.model.Car;
+import org.parking.model.Nameplate;
+import org.parking.model.Parking;
 
 import java.util.Scanner;
 
