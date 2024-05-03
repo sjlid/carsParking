@@ -2,13 +2,13 @@ Simulation of parking station, where cars can arrive, depart and you can check c
 Also I added some auto-tests via AssertJ library. Application following MVC architecture.
 
 Stack:
-Java 21
-AssertJ
-Spring Web
-Spring JPA
-Hibernate
-Thymeleaf
-Tomcat
+- Java 21
+- AssertJ
+- Spring Web
+- Spring JPA
+- Hibernate
+- Thymeleaf
+- Tomcat
 
 
 Branches:
