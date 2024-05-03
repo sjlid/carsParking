@@ -55,8 +55,8 @@ public class ControlSystem {
     }
 
     @DeleteMapping("/depart")
-    public String delete(@PathVariable("id") Nameplate nameplate) {
-        parkingDAO.carDepart(nameplate);
+    public String delete(int id) {
+        parkingDAO.carDepart(id);
         return "redirect:/parking/menu";
     }
 

@@ -29,9 +29,9 @@ public class ParkingDAO {
     }
 
     @Transactional
-    public void carDepart(Nameplate nameplate) {
+    public void carDepart(int id) {
         Session session = sessionFactory.getCurrentSession();
-        session.remove(session.get(Car.class, nameplate));
+        session.remove(session.get(Car.class, id));
     }
 
     @Transactional(readOnly = true)

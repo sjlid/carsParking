@@ -6,8 +6,8 @@
 </head>
 <body>
 <form th:method="DELETE" th:action="@{/parking}" th:object="${car}">
-    <label for="carNameplate">Enter nameplate: </label>
-    <input type="text" th:field="*{carNameplate}" id="carNameplate"/>
+    <label for="id">Enter nameplate: </label>
+    <input type="text" th:field="*{id}" id="id"/>
     <br/>
     <input type="submit" value="Depart!"/>
 </form>
