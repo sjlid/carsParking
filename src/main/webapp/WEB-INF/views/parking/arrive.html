@@ -7,8 +7,8 @@
 <body>
 
 <form th:method="POST" th:action="@{/parking}" th:object="${car}">
-    <label for="nameplate">Enter nameplate: </label>
-    <input type="text" th:field="*{nameplate}" id="nameplate"/>
+    <label for="carNameplate">Enter nameplate: </label>
+    <input type="text" th:field="*{carNameplate}" id="carNameplate"/>
     <br/>
     <input type="submit" value="Welcome!"/>
 </form>
