@@ -29,15 +29,15 @@ public class ParkingDAO {
     }
 
     @Transactional
-    public void carDepart(int id) {
+    public void carDepart(Nameplate nameplate) {
         Session session = sessionFactory.getCurrentSession();
-        session.remove(session.get(Car.class, id));
+        session.remove(session.get(Car.class, nameplate));
     }
 
     @Transactional(readOnly = true)
     public List<Car> carsOnParking() {
         Session session = sessionFactory.getCurrentSession();
 
-        return session.createQuery("select p from cars p", Car.class).getResultList();
+        return session.createQuery("select p from Car p", Car.class).getResultList();
     }
 }

@@ -5,11 +5,11 @@
     <title>Departing</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/parking}" th:object="${carNameplate}">
-    <label for="carNameplate">Enter nameplate</label>
+<form th:method="DELETE" th:action="@{/parking}" th:object="${car}">
+    <label for="carNameplate">Enter nameplate: </label>
     <input type="text" th:field="*{carNameplate}" id="carNameplate"/>
     <br/>
-    <input type="submit" value="Go away!"/>
+    <input type="submit" value="Depart!"/>
 </form>
 </body>
 </html>

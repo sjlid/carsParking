@@ -46,14 +46,18 @@ public class ControlSystem {
     @PostMapping
     public String create(@ModelAttribute("car") Car car) {
         parkingDAO.carArrive(car);
-        return "redirect:/menu";
+        return "redirect:/parking/menu";
     }
 
-
     @GetMapping("/depart")
-    public String delete(@PathVariable("id") int id) {
-        parkingDAO.carDepart(id);
+    public String deleteCar() {
         return "parking/depart";
+    }
+
+    @DeleteMapping("/depart")
+    public String delete(@PathVariable("id") Nameplate nameplate) {
+        parkingDAO.carDepart(nameplate);
+        return "redirect:/parking/menu";
     }
 
 
