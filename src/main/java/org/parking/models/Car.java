@@ -1,7 +1,6 @@
 package org.parking.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
