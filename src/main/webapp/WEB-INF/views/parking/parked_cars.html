@@ -8,5 +8,10 @@
 <div th:each="car : ${cars}">
     <a th:text="${'Nameplate: ' + car.getCarNameplate() + ', ' + 'Start parking: ' + car.getStartTimer()}">car</a>
 </div>
+<br/>
+<br/>
+<a href="/parking/menu">
+    <input type="button" value="Get back to menu"/>
+</a>
 </body>
 </html>
