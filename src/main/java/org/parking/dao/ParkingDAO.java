@@ -25,6 +25,7 @@ public class ParkingDAO {
     @Transactional
     public void carArrive(Car car) {
         Session session = sessionFactory.getCurrentSession();
+        car.setStartTimer(LocalDateTime.now());
         session.persist(car);
     }
 

@@ -15,9 +15,9 @@ public class Car {
     @Column(name= "id")
     private int id;
 
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @Column(name = "starttime")
-//    private LocalDateTime startTimer;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "starttime")
+    private LocalDateTime startTimer;
 
     //@Embedded
     @Column(name = "nameplate")
@@ -28,7 +28,7 @@ public class Car {
 
     public Car(Nameplate namePlate) {
         this.carNameplate = namePlate.getNamePlate();
-        //this.startTimer = LocalDateTime.now();
+        this.startTimer = LocalDateTime.now();
     }
 
     public int getId() {
@@ -38,7 +38,7 @@ public class Car {
     public void setId(int id) {
         this.id = id;
     }
-/*
+
     public LocalDateTime getStartTimer() {
         return startTimer;
     }
@@ -46,8 +46,6 @@ public class Car {
     public void setStartTimer(LocalDateTime startTimer) {
         this.startTimer = startTimer;
     }
-
- */
 
     public String getCarNameplate() {
         return carNameplate;
