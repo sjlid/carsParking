@@ -1,11 +1,13 @@
 package org.parking.controller;
 
 
+import jakarta.validation.Valid;
 import org.parking.dao.ParkingDAO;
 import org.parking.models.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -39,7 +41,11 @@ public class ControlSystem {
     }
 
     @PostMapping
-    public String create(@ModelAttribute("car") Car car) {
+    public String create(@ModelAttribute("car") @Valid Car car, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "parking/arrive";
+        }
+
         parkingDAO.carArrive(car);
         return "redirect:/parking/menu";
     }

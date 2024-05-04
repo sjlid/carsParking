@@ -1,6 +1,8 @@
 package org.parking.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -18,7 +20,8 @@ public class Car {
     @Column(name = "starttime")
     private LocalDateTime startTimer;
 
-    //@Embedded
+    @NotEmpty(message = "Name should not be empty")
+    @Pattern(regexp = "^[a-zA-Z0-9]{5,9}$", message = "Nameplate should contain only letters and digits, and be between 5 and 9 characters")
     @Column(name = "nameplate")
     private String carNameplate;
 
@@ -26,7 +29,7 @@ public class Car {
     }
 
     public Car(Nameplate namePlate) {
-        this.carNameplate = namePlate.getNamePlate();
+        this.carNameplate = namePlate.namePlate();
         this.startTimer = LocalDateTime.now();
     }
 

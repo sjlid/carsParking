@@ -6,7 +6,7 @@
 </head>
 <body>
 <div th:each="car : ${cars}">
-    <a th:text="${car.getCarNameplate()}">car</a>
+    <a th:text="${'Nameplate: ' + car.getCarNameplate() + ', ' + 'Start parking: ' + car.getStartTimer()}">car</a>
 </div>
 </body>
 </html>

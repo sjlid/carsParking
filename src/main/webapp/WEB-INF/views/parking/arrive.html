@@ -8,6 +8,7 @@
 <form th:method="POST" th:action="@{/parking}" th:object="${car}">
     <label for="carNameplate">Enter nameplate: </label>
     <input type="text" th:field="*{carNameplate}" id="carNameplate"/>
+    <div style="color:red" th:if="${#fields.hasErrors('carNameplate')}" th:errors="*{carNameplate}">Name error</div>
     <br/>
     <input type="submit" value="Welcome!"/>
 </form>
