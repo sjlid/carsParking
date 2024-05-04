@@ -3,6 +3,7 @@ package org.parking.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -16,6 +17,7 @@ public class Car {
     @Column(name= "id")
     private int id;
 
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "starttime")
     private LocalDateTime startTimer;
