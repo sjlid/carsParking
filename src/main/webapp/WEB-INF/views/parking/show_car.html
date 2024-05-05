@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car on the parking</title>
+</head>
+<body>
+<p th:text="${car.getCarNameplate()}">VALUE</p>
+<p th:text="${car.getId()}">VALUE</p>
+
+<form th:method="DELETE" th:action="@{/parking/{id}(id=${car.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

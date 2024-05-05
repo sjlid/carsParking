@@ -43,18 +43,18 @@ public class ControlSystem {
         if (bindingResult.hasErrors()) {
             return "parking/arrive";
         }
-
         carDAO.carArrive(car);
         return "redirect:/parking/menu";
     }
 
-    @GetMapping("/depart")
-    public String deleteCar() {
-        return "parking/depart";
+    @GetMapping("/{id}")
+    public String showCar(@PathVariable("id") int id, Model model) {
+        model.addAttribute("car", carDAO.showCar(id));
+        return "parking/show_car";
     }
 
-    @DeleteMapping("/depart")
-    public String delete(int id) {
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
         carDAO.carDepart(id);
         return "redirect:/parking/menu";
     }

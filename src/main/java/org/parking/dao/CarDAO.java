@@ -37,4 +37,11 @@ public class CarDAO {
 
         return session.createQuery("select p from Car p", Car.class).getResultList();
     }
+
+    @Transactional(readOnly = true)
+    public Car showCar(int id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.get(Car.class, id);
+    }
 }
