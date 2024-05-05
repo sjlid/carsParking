@@ -2,7 +2,7 @@ package org.parking.controller;
 
 
 import jakarta.validation.Valid;
-import org.parking.dao.ParkingDAO;
+import org.parking.dao.CarDAO;
 import org.parking.models.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/parking")
 public class ControlSystem {
 
-    private final ParkingDAO parkingDAO;
+    private final CarDAO carDAO;
 
     @Autowired
-    public ControlSystem(ParkingDAO parkingDAO) {
-        this.parkingDAO = parkingDAO;
+    public ControlSystem(CarDAO carDAO) {
+        this.carDAO = carDAO;
     }
 
     @GetMapping("/parked_cars")
     public String carsOnParking(Model model) {
-        model.addAttribute("cars", parkingDAO.carsOnParking());
+        model.addAttribute("cars", carDAO.carsOnParking());
         return "parking/parked_cars";
     }
 
@@ -44,7 +44,7 @@ public class ControlSystem {
             return "parking/arrive";
         }
 
-        parkingDAO.carArrive(car);
+        carDAO.carArrive(car);
         return "redirect:/parking/menu";
     }
 
@@ -55,7 +55,7 @@ public class ControlSystem {
 
     @DeleteMapping("/depart")
     public String delete(int id) {
-        parkingDAO.carDepart(id);
+        carDAO.carDepart(id);
         return "redirect:/parking/menu";
     }
 }

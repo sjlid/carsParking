@@ -3,7 +3,6 @@ package org.parking;
 import org.junit.jupiter.api.Test;
 import org.parking.models.Car;
 import org.parking.models.Nameplate;
-import org.parking.models.Parking;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
