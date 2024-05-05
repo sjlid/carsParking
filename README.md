@@ -13,5 +13,5 @@ Stack:
 
 Branches:
 - master - console version (completed)
-- spring - simple CRUD webapp (in progress)
-- jpa - webapp with Spring Data JPA (in plan)
+- spring - simple CRUD webapp (completed)
+- jpa - using Data JPA (in progress)
