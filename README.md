@@ -12,6 +12,5 @@ Stack:
 
 
 Branches:
-- master - console version (completed)
-- spring - simple CRUD webapp (completed)
-- jpa - using Data JPA and Parking class as new entity (in progress)
+- master - console version
+- spring - simple CRUD webapp
