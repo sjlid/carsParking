@@ -5,7 +5,6 @@ Stack:
 - Java 21
 - AssertJ
 - Spring Web
-- Spring JPA
 - Hibernate
 - Thymeleaf
 - Tomcat
